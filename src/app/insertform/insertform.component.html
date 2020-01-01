@@ -1,0 +1,27 @@
+
+ <div>
+     <form [formGroup]= "formData" >
+    <div >
+		
+        <input name="id" formControlName="id" placeholder="id" type="text">
+        <!----<div *ngIf = "formData.controls.Name.invalid || formData.controls.Name.touched">
+           <p>Name Is Required</p>
+        </div>----->
+    </div>
+    <div >
+        <input name="fname" formControlName="fname" placeholder="fname" type="text">
+        <!---<div *ngIf = "formData.controls.Email.invalid || formData.controls.Email.touched">
+        <p>Email Is Required</p>
+        </div>---->
+    </div>
+    
+    <button (click)="onSubmit()">Submit</button>
+   </form>
+ </div>
+ <div>
+     <ul *ngFor='let s of slist'>
+     <li>{{s.Id}}</li>
+     <li>{{s.fname}}</li>
+     <li>{{s.lname}}</li>
+     </ul>
+ </div>

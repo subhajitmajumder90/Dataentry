@@ -1,0 +1,9 @@
+<div>
+    {{insertYOU.value | json}}
+    <form [formGroup]="insertYOU">
+        <input type="text" placeholder="fname" formControlName="fname" ><br>
+        <input type="text" placeholder="lname" formControlName="lname"><br>
+        <button (click)="addformdata()">INSERT</button>
+    </form>
+</div>
+      
