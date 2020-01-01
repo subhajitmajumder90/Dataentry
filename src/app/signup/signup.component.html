@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="mt-5">
+        <form [formGroup]="regform">
+            <div class="mt-1">
+                <span class="mr-5">First name</span><input class="ml-5 " type="text" name="fname" formControlName="fname">
+                <div *ngIf="submited">
+                    <div *ngIf="regform.controls.fname.value=='' " style="color: red;">This field not required</div>
+                </div>
+                
+            
+            </div>
+            <div class="mt-1">
+                <span class="mr-5">Last name</span><input class="ml-5 " type="text" formControlName="lname">
+            </div>
+            <div *ngIf="submited">
+                <div *ngIf="regform.controls.lname.value=='' " style="color: red;">This field not required</div>
+            </div>
+
+
+
+            <div class="mt-1">
+                <span class="mr-5">Password </span><span class="ml-1"></span><input class="ml-5 " type="password" formControlName="password">
+                <div *ngIf="submited " style="color: red;">
+                    <div *ngIf="regform.controls.confirmpassword.value != regform.controls.password.value || regform.controls.password.value==''">faild</div>
+                </div>
+            </div>
+            <div class="mt-1">
+                <span class="mr-3">Confirm Password </span>&nbsp;<input class="ml-3" type="password" formControlName="confirmpassword">
+                <div *ngIf="submited " style="color: red;">
+                   <div *ngIf="regform.controls.confirmpassword.value != regform.controls.password.value || regform.controls.confirmpassword.value==''">faild</div>
+                </div>
+            </div>
+            <div class="mt-1">
+                <button class="btn btn-primary" (click)='postdata()'>REGISTER</button>
+            </div>
+            
+        </form>
+       
+    </div>
+    
+</div>

@@ -8,12 +8,14 @@ import { InsertformComponent } from './insertform/insertform.component';
 import { from } from 'rxjs';
 import { HttpClientModule } from '@angular/common/http';
 import { InsertdataComponent } from './insertdata/insertdata.component';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InsertformComponent,
-    InsertdataComponent
+    InsertdataComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
