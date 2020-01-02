@@ -12,8 +12,17 @@ export class UsersService {
     return this.httpss.get<any>('http://localhost:4000/getuser/'+id+'/'+fname);
     
   }
+  getdata():Observable<any>{
+    return this.httpss.get<any>('http://localhost:4000/getuser/');
+    
+  }
   setlist(insertdata:any){
     return this.httpss.post('http://localhost:4000/Insertdata',insertdata);
+  }
+  deleterow(id:any){
+    return this.httpss.get('http://localhost:4000/delete/'+id);
+
+
   }
   
 }

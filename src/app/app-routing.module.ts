@@ -3,12 +3,17 @@ import { Routes, RouterModule } from '@angular/router';
 import { InsertformComponent } from './insertform/insertform.component';
 import { InsertdataComponent } from './insertdata/insertdata.component';
 import { SignupComponent } from './signup/signup.component';
+import { ActionComponent } from './action/action.component';
 
 
 const routes: Routes = [
   {
     path:'register',
     component:InsertformComponent
+  },
+  {
+    path:'action',
+    component:ActionComponent   
   },
   {
     path:'insertdata',

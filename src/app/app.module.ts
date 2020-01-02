@@ -9,13 +9,15 @@ import { from } from 'rxjs';
 import { HttpClientModule } from '@angular/common/http';
 import { InsertdataComponent } from './insertdata/insertdata.component';
 import { SignupComponent } from './signup/signup.component';
+import { ActionComponent } from './action/action.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InsertformComponent,
     InsertdataComponent,
-    SignupComponent
+    SignupComponent,
+    ActionComponent
   ],
   imports: [
     BrowserModule,

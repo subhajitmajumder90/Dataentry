@@ -20,8 +20,17 @@ export class InsertformComponent implements OnInit {
         fname : ['',Validators.required]
       });
       this.onSubmit();
-
+      this.usserv.getdata().subscribe(
+        res=>{
+          this.slist=res.data;
+          console.log((res.data));
+        }
+      )
+          
   }
+  
+    
+  
 
   onSubmit(){
     if(this.formData.invalid){

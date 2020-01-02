@@ -19,9 +19,17 @@
    </form>
  </div>
  <div>
-     <ul *ngFor='let s of slist'>
-     <li>{{s.Id}}</li>
-     <li>{{s.fname}}</li>
-     <li>{{s.lname}}</li>
-     </ul>
+     <table border="2" align="center" cellpadding='5' cellspacing='5'>
+    <tr>
+        <th>Id</th>
+        <th>Fname</th>
+        <th>Lname</th>
+        <th colspan="2">Action</th>
+    </tr>
+    <tr *ngFor='let s of slist'>
+    <td>{{s.Id}}</td>
+        <td>{{s.fname}}</td>
+        <td>{{s.lname}}</td>
+    </tr>
+     </table>
  </div>
