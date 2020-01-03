@@ -4,6 +4,7 @@ import { InsertformComponent } from './insertform/insertform.component';
 import { InsertdataComponent } from './insertdata/insertdata.component';
 import { SignupComponent } from './signup/signup.component';
 import { ActionComponent } from './action/action.component';
+import { CRUDComponent } from './crud/crud.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,11 @@ const routes: Routes = [
   {
     path:'signup',
     component:SignupComponent
+  },
+  {
+    path:'crud',
+    component:CRUDComponent
+
   }
 ];
 

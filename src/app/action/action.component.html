@@ -1,9 +1,11 @@
 
  <div class="container mb-5 mt-2"> 
     <form class="formm-group" [formGroup]= "formData" >
+        
+        <input type="hidden" formControlName="Id">
    <div >
        
-       <input name="id" class="form-control" formControlName="fname" placeholder="Fname" type="text"><br>
+       <input  class="form-control" formControlName="fname" placeholder="Fname" type="text"><br>
        <!----<div *ngIf = "formData.controls.Name.invalid || formData.controls.Name.touched">
           <p>Name Is Required</p>
        </div>----->
@@ -15,7 +17,7 @@
        </div>---->
    </div><br>
    
-   <button *ngIf='cond ' (click)="postdata()"  class="btn btn-primary btn-lg">Update</button>
+   <button *ngIf='cond ' (click)="upddata()"  class="btn btn-primary btn-lg">Update</button>
    <button *ngIf='!cond' (click)="insert()" class="btn btn-warning btn-lg">Insert</button>
   </form>
 </div>
@@ -31,9 +33,9 @@
    <td>{{s.Id}}</td>
        <td>{{s.fname}}</td>
        <td>{{s.lname}}</td>
-       <td style="width:  120px;"><button class="btn btn-success btn-block" *ngIf='!cond' (click) ="editdata(s.Id)">Edit</button>
-       <button class="btn btn-danger btn-block" *ngIf='cond' (click) ="editdata(s.Id)">Cancel</button></td>
-       <td><button class="btn btn-danger btn-block"  (click) ="deldata(s.Id)">Delete</button></td>
+       <td style="width:  120px;"><button class="btn btn-success btn-block" (click) ="editdata(s.Id)">Edit</button>
+       </td>
+       <td><button class="btn btn-danger btn-block"  (click) ="deletedatabyid(s.Id)">Delete</button></td>
    </tr>
     </table>
 </div>

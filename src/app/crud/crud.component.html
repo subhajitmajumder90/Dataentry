@@ -1,0 +1,20 @@
+<form [formGroup]="InsertForm">
+<input type="text" formControlName="fname"  >
+<input type="text" formControlName="lname"  >  
+<button (click)="insertCRUD()">SAVE</button>
+</form>
+<table border="2" align="center" cellpadding='5' cellspacing='5'>
+    <tr>
+        <th>Id</th>
+        <th>fname</th>
+        <th>lname</th>
+        <th>EDIT</th>
+    </tr>
+    <tr *ngFor='let d of datalist'>
+       <td>{{d.Id}}</td>
+       <td>{{d.fname}}</td>
+       <td>{{d.lname}}</td>
+       <td><button (click)='deleteCRUD(d.Id)' >DELETE</button></td> 
+    </tr>
+     
+</table>

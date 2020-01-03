@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormBuilder,Validators} from '@angular/forms';
 import { UsersService } from '../users.service';
 import { Router } from '@angular/router';
+import { stringify } from 'querystring';
 
 
 @Component({
@@ -19,6 +20,7 @@ export class ActionComponent implements OnInit {
 
   ngOnInit() {
     this.formData = this.formBuilder.group({
+      Id:     ['',Validators.required],
       fname : ['',Validators.required],
       lname : ['',Validators.required]
     });
@@ -31,6 +33,11 @@ export class ActionComponent implements OnInit {
       res=>{
         if(res=="inserted"){
           this.showdata();
+          this.formData.setValue({
+            Id:'',
+            fname:'',
+            lname:''
+          });
         }
         else{
           console.log("error")
@@ -38,15 +45,56 @@ export class ActionComponent implements OnInit {
       }
     );
   }
-  
+  upddata(){
+    let arr:any={
+      fname:this.formData.controls.fname.value,
+      lname:this.formData.controls.lname.value,
+      Id:this.formData.controls.Id.value
+
+    };
+    console.log(arr);
+    this.usserv.updaterow(arr).subscribe(res=>{
+      if(res=="Success"){
+        this.showdata();
+        this.formData.setValue({
+          Id:'',
+          fname:'',
+          lname:''
+        });
+      }
+    }),
+    err=>{
+      console.log(err);
+    }
+  }
   editdata(Id:any){
     if(this.cond==false){
-    this.cond=true;
-    this.chkid=Id;
+      this.cond=true;
+    this.usserv.fetchrow(Id).subscribe((res:any)=>{
+      if(res.stat=="Success"){
+        this.formData.patchValue({
+          Id:res.data.Id,
+          fname:res.data.fname,
+          lname:res.data.lname,
+        });
+       // console.log(res.rows);
+      }
+    });
+  }
+  else if(this.cond==true){
+    this.cond=false;
+  this.usserv.fetchrow(Id).subscribe((res:any)=>{
+    if(res.stat=="Success"){
+      this.formData.patchValue({
+        id:res.data.Id,
+        fname:res.data.fname,
+        lname:res.data.lname,
+      });
+     // console.log(res.rows);
     }
-    else{
-      this.cond=false;
-    }
+  });
+}
+
   }
   showdata(){
      this.usserv.getdata().subscribe(
@@ -56,16 +104,7 @@ export class ActionComponent implements OnInit {
       }
     )
   }
-  postdata(){
-      this.usserv.setlist(this.formData.value).subscribe((data:any)=>{
-        this.usserv.getdata().subscribe(
-          res=>{
-            this.slist=res.data;
-            console.log((res.data));
-          }
-        )
-      })
-  }
+
   deldata(id:any){
     this.usserv.deleterow(id).subscribe(
         res=>{
@@ -75,14 +114,29 @@ export class ActionComponent implements OnInit {
           else{
             console.log("error")
           }
-          
-          
         },
         err=>{
           console.log(err)
         }
       )
   }
+
+  deletedatabyid(id:any){
+    let did:any={
+      id:id
+    };
+    
+    this.usserv.deletebypost(did).subscribe(
+      res=>{
+        if(res=="Success"){
+          this.showdata();
+         
+        }
+        
+      }
+    )
+  }
+
   
  
 

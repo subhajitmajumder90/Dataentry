@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { InsertdataComponent } from './insertdata/insertdata.component';
 import { SignupComponent } from './signup/signup.component';
 import { ActionComponent } from './action/action.component';
+import { CRUDComponent } from './crud/crud.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ActionComponent } from './action/action.component';
     InsertformComponent,
     InsertdataComponent,
     SignupComponent,
-    ActionComponent
+    ActionComponent,
+    CRUDComponent
   ],
   imports: [
     BrowserModule,

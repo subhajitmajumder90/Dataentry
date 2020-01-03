@@ -21,8 +21,15 @@ export class UsersService {
   }
   deleterow(id:any){
     return this.httpss.get('http://localhost:4000/delete/'+id);
-
-
   }
-  
+  fetchrow(id:any){
+    return this.httpss.get('http://localhost:4000/fetch/'+id);
+  }
+  updaterow(data:any){
+    return this.httpss.post('http://localhost:4000/update',data);
+  }
+  deletebypost(id:any){
+    return this.httpss.post("http://localhost:4000/deletebypost",id);
+  }
+
 }
