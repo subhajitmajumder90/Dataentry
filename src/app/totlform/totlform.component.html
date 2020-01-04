@@ -1,0 +1,37 @@
+<div class="container mb-5 mt-2"> 
+    <form class="formm-group" [formGroup]= "formData" >
+        
+        <input type="hidden" formControlName="Id">
+   <div >
+       
+       <input  class="form-control" formControlName="fname" placeholder="Fname" type="text"><br>
+       
+       <input name="fname" class="form-control" formControlName="lname" placeholder="Lname" type="text">
+
+   </div><br>
+   
+       
+    <input name='gender' formControlName="gender" type="radio" value="male"><label>Male</label>&nbsp;
+
+
+    <input name='gender'  formControlName="gender" type="radio" value="female"><label>Female</label>
+
+ 
+   <div>
+       <select   class="col-md-6 form-control" formControlName="state" (change)="setstate($event)">
+           <option value="">--Select State--</option>
+           <option *ngFor="let s of st" value="{{s.Id}}">{{s.stname}}</option>
+
+           
+       </select>&nbsp;&nbsp;&nbsp;
+
+    <select  class="col-md-6 form-control" formControlName="district">
+        <option value="">--Select District--</option>
+        <option *ngFor="let d of dt" value="{{d.Id}}">{{d.distname}}</option>
+    </select>
+</div><br>
+
+   
+   <button  class="btn btn-primary btn-lg">Submit</button>
+  </form>
+</div>

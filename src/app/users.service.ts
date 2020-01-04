@@ -31,5 +31,11 @@ export class UsersService {
   deletebypost(id:any){
     return this.httpss.post("http://localhost:4000/deletebypost",id);
   }
+  getstate(){
+    return this.httpss.post("http://localhost:4000/getstate",null);
+  }
+  getdistrict(id:any){
+    return this.httpss.get("http://localhost:4000/getdistrict/"+id);
+  }
 
 }

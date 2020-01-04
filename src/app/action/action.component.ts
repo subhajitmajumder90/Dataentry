@@ -96,6 +96,24 @@ export class ActionComponent implements OnInit {
 }
 
   }
+  cancel(){
+    if(this.cond==true){
+      this.cond=false;
+    this.formData.setValue({
+      Id:'',
+      fname:'',
+      lname:''
+    });
+  }
+  else{
+    this.cond=true;
+    this.formData.setValue({
+      Id:'',
+      fname:'',
+      lname:''
+    });
+  }
+  }
   showdata(){
      this.usserv.getdata().subscribe(
       res=>{

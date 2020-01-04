@@ -18,4 +18,10 @@ export class CrudService {
   insertData(data:any){
     return this.httpClient.post('http://localhost:4000/Insertdata',data)
   }
+  updateData(data:any){
+    return this.httpClient.post('http://localhost:4000/update',data)
+  }
+  fetchData(Id:any):Observable<any>{
+    return this.httpClient.get<any>('http://localhost:4000/fetch/'+Id)
+  }
 }

@@ -11,6 +11,7 @@ import { InsertdataComponent } from './insertdata/insertdata.component';
 import { SignupComponent } from './signup/signup.component';
 import { ActionComponent } from './action/action.component';
 import { CRUDComponent } from './crud/crud.component';
+import { TotlformComponent } from './totlform/totlform.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CRUDComponent } from './crud/crud.component';
     InsertdataComponent,
     SignupComponent,
     ActionComponent,
-    CRUDComponent
+    CRUDComponent,
+    TotlformComponent
   ],
   imports: [
     BrowserModule,

@@ -12,6 +12,7 @@ export class CRUDComponent implements OnInit {
   InsertForm:FormGroup;
   constructor(private crudservice:CrudService,private formbuilder:FormBuilder) {
     this.InsertForm=formbuilder.group({
+      Id:['',Validators.required],
       fname:['',Validators.required],
       lname:['',Validators.required]
     });
@@ -55,6 +56,33 @@ export class CRUDComponent implements OnInit {
        }
      }
    );
+ }
+ updateCRUD(){
+   let updata:any={
+     fname:this.InsertForm.controls.fname.value,
+     lname:this.InsertForm.controls.lname.value,
+     Id:this.InsertForm.controls.Id.value,
+
+   }
+   this.crudservice.updateData(updata).subscribe(
+     res=>{
+       if(res=="Success"){
+         this.getdata();
+       }
+       else{
+         console.log("notUpdate")
+       }
+     }
+   )
+ }
+ fetchCRUD(Id:any){
+   this.crudservice.fetchData(Id).subscribe(
+     res=>{
+       if(res.stat="Success"){
+         this.InsertForm.setValue(res.data)
+       }
+     }
+   )
  }
 
 
