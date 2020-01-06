@@ -33,14 +33,10 @@ export class ActionComponent implements OnInit {
       res=>{
         if(res=="inserted"){
           this.showdata();
-          this.formData.setValue({
-            Id:'',
-            fname:'',
-            lname:''
-          });
+          this.formData.reset();
         }
         else{
-          console.log("error")
+         
         }
       }
     );
@@ -56,17 +52,15 @@ export class ActionComponent implements OnInit {
     this.usserv.updaterow(arr).subscribe(res=>{
       if(res=="Success"){
         this.showdata();
-        this.formData.setValue({
-          Id:'',
-          fname:'',
-          lname:''
-        });
+        this.formData.reset();
+       
       }
     }),
     err=>{
       console.log(err);
     }
   }
+  
   editdata(Id:any){
     if(this.cond==false){
       this.cond=true;

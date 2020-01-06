@@ -6,15 +6,11 @@
    <div >
        
        <input  class="form-control" formControlName="fname" placeholder="Fname" type="text"><br>
-       <!----<div *ngIf = "formData.controls.Name.invalid || formData.controls.Name.touched">
-          <p>Name Is Required</p>
-       </div>----->
+       
    </div>
    <div >
        <input name="fname" class="form-control" formControlName="lname" placeholder="Lname" type="text">
-       <!---<div *ngIf = "formData.controls.Email.invalid || formData.controls.Email.touched">
-       <p>Email Is Required</p>
-       </div>---->
+       
    </div><br>
    
    <button *ngIf='cond ' (click)="upddata()"  class="btn btn-primary btn-lg">Update</button>

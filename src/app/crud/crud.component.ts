@@ -10,6 +10,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class CRUDComponent implements OnInit {
   datalist:any;
   InsertForm:FormGroup;
+  bool:boolean=false;
   constructor(private crudservice:CrudService,private formbuilder:FormBuilder) {
     this.InsertForm=formbuilder.group({
       Id:['',Validators.required],
@@ -51,38 +52,72 @@ export class CRUDComponent implements OnInit {
  insertCRUD(){
    this.crudservice.insertData(this.InsertForm.value).subscribe(
      res=>{
+       this.InsertForm.reset();
        if(res=="inserted"){
          this.getdata();
+         
        }
      }
    );
  }
  updateCRUD(){
    let updata:any={
+     
      fname:this.InsertForm.controls.fname.value,
      lname:this.InsertForm.controls.lname.value,
      Id:this.InsertForm.controls.Id.value,
 
    }
-   this.crudservice.updateData(updata).subscribe(
-     res=>{
-       if(res=="Success"){
-         this.getdata();
-       }
-       else{
-         console.log("notUpdate")
-       }
-     }
-   )
+
+     this.crudservice.updateData(updata).subscribe(
+         res=>{
+        this.InsertForm.reset();
+        if(res=="Success"){
+          this.getdata();
+        }
+        else{
+          console.log("notUpdate")
+        }
+      }
+    )
+   
+  
+ 
  }
  fetchCRUD(Id:any){
-   this.crudservice.fetchData(Id).subscribe(
-     res=>{
-       if(res.stat="Success"){
-         this.InsertForm.setValue(res.data)
-       }
-     }
-   )
+   if(this.bool==false){
+     this.bool=true;
+    this.crudservice.fetchData(Id).subscribe(
+      res=>{
+        if(res.stat="Success"){
+          delete res.data.gender;
+          delete res.data.did;
+          delete res.data.image;
+          this.InsertForm.setValue(res.data)
+          
+        }
+      }
+    )
+
+   }
+   else{
+     this.bool=false;
+     this.crudservice.fetchData(Id).subscribe(
+      res=>{
+        if(res.stat="Success"){
+          delete res.data.gender;
+          delete res.data.did;
+          delete res.data.image;
+          this.InsertForm.setValue(res.data)
+          
+        }
+      }
+    )
+
+
+
+   }
+
  }
 
 

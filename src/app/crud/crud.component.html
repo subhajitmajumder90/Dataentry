@@ -2,8 +2,8 @@
 <input type="hidden" formControlName="Id">
 <input type="text" formControlName="fname"  >
 <input type="text" formControlName="lname"  >  
-<button (click)="insertCRUD()">SAVE</button>
-<button (click)="updateCRUD()">UPDATE</button>
+<button *ngIf="!bool" (click)="insertCRUD()">SAVE</button>
+<button *ngIf="bool" (click)="updateCRUD()">UPDATE</button>
 </form>
 <table border="2" align="center" cellpadding='5' cellspacing='5'>
     <tr>

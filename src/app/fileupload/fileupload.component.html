@@ -1,0 +1,7 @@
+
+        <form [formGroup]="UploadForm" enctype="multipart/form-data">
+    <input formControlName='sampleFile' type="file" (change)='showfile($event)'><br>
+    <button (click)="upload()" class="btn btn-success">SAVE</button>
+</form>
+
+

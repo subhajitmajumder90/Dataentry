@@ -37,5 +37,8 @@ export class UsersService {
   getdistrict(id:any){
     return this.httpss.get("http://localhost:4000/getdistrict/"+id);
   }
+  fileUpload(file:any){
+    return this.httpss.post("http://localhost:4000/fileupload",file);
+  }
 
 }

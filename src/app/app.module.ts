@@ -12,6 +12,7 @@ import { SignupComponent } from './signup/signup.component';
 import { ActionComponent } from './action/action.component';
 import { CRUDComponent } from './crud/crud.component';
 import { TotlformComponent } from './totlform/totlform.component';
+import { FileuploadComponent } from './fileupload/fileupload.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { TotlformComponent } from './totlform/totlform.component';
     SignupComponent,
     ActionComponent,
     CRUDComponent,
-    TotlformComponent
+    TotlformComponent,
+    FileuploadComponent
   ],
   imports: [
     BrowserModule,
